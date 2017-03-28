@@ -59,6 +59,14 @@ class AqaraBinarySensor(BinarySensorDevice,Entity):
                 self.pushUpdate(model, data['status'])
 
     @property
+    def force_update(self):
+        """Return True if state updates should be forced.
+        If True, a state change will be triggered anytime the state property is
+        updated, not just when the value changes.
+        """
+        return True
+
+    @property
     def should_poll(self):
         """No polling needed for a demo light."""
         return False
